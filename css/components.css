@@ -19,3 +19,4 @@
 .admin-note{font-size:.75rem;color:var(--mute);margin:10px 0 0}
 .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--head);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:.82rem;opacity:0;pointer-events:none;transition:opacity .2s}.toast.show{opacity:1}
 @media(max-width:560px){.card{flex-wrap:wrap}.thumb{width:100%;height:auto;aspect-ratio:16/9}}
+.rules li>span:first-child{width:1.4em;flex:none}

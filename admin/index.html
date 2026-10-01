@@ -4,31 +4,43 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Admin | Projectlarry.lol</title>
-<link rel="icon" href="../assets/img/logo.png?v=3" type="image/png">
+<link rel="icon" href="../assets/img/logo.png" type="image/png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="../css/tokens.css"><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/layout.css"><link rel="stylesheet" href="../css/components.css">
-<style>#admin{display:block!important}.login{max-width:340px;margin:18vh auto;padding:0 20px}.login form{display:grid;gap:10px}[hidden]{display:none!important}.wrap{max-width:1080px;margin:24px auto;padding:0 20px;display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:start}@media(max-width:860px){.wrap{grid-template-columns:1fr}}</style>
+<style>
+#admin{display:block!important}.login{max-width:340px;margin:18vh auto;padding:0 20px}.login form{display:grid;gap:10px}[hidden]{display:none!important}
+.wrap{max-width:1100px;margin:24px auto;padding:0 20px;display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:start}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}}
+.sec-title{font-size:.78rem;letter-spacing:1px;text-transform:uppercase;color:var(--mute);margin:0 0 12px;font-weight:700}
+.sub .info h3{font-size:1.2rem}.sub .btns{display:flex;flex-direction:column;gap:6px}.sub .btns .btn{padding:8px 14px;font-size:.8rem}
+.btn.red{background:var(--danger);color:#fff}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:50;overflow:auto;padding:30px;display:grid;gap:14px;justify-items:center;align-content:start;cursor:zoom-out}.lb img{max-width:min(1000px,100%);border-radius:6px}
+</style>
 </head>
 <body>
 <section class="login" id="login"><div class="card col"><h2>Admin login</h2>
   <form id="lf"><input id="pw" type="password" placeholder="Password" autocomplete="current-password" required autofocus><button class="btn" type="submit">Enter</button></form>
   <div id="lmsg" style="color:var(--danger);font-size:.82rem;margin-top:8px"></div></div></section>
 <div id="panel" hidden>
-<header><div class="bar"><a class="logo" href="../">← Back to site</a><nav><span style="color:var(--mute);font-size:.9rem">Admin</span><button class="btn ghost" id="logout" type="button">Log out</button></nav></div></header>
+<header><div class="bar"><a class="logo" href="../">&larr; Back to site</a><nav><span style="color:var(--mute);font-size:.9rem">Admin</span><button class="btn ghost" id="logout" type="button">Log out</button></nav></div></header>
 <div class="wrap">
-  <div id="board"></div>
+  <div>
+    <h2 class="sec-title">Pending submissions (<span id="scount">0</span>)</h2>
+    <div id="subs"></div>
+    <h2 class="sec-title" style="margin-top:34px">Leaderboard</h2>
+    <div id="board"></div>
+  </div>
   <div class="card col" id="admin"><h2>Add / edit a run</h2>
     <form id="f" style="display:grid;gap:8px">
       <input id="n" placeholder="Designer name" required maxlength="40">
-      <input id="t" placeholder="Time (e.g. 47:12 or 1:05:30)" required>
+      <input id="t" placeholder="Time (e.g. 2:34:54 or 2h 34m 54s)" required>
       <input id="c" placeholder="Client (who was this for?)" maxlength="60">
       <input id="v" placeholder="Recording link (https://...)">
-      <label for="p">Profile pic (optional)</label><input id="p" type="file" accept="image/*">
+      <label for="p">Card picture (optional)</label><input id="p" type="file" accept="image/*">
       <div class="row2"><button class="btn" type="submit" id="sb">Add to list</button><button class="btn ghost" type="button" id="cx" style="display:none">Cancel</button></div>
     </form>
     <div id="msg"></div>
-    <div class="row2" style="margin-top:10px"><button class="btn ghost" id="export" type="button">Export runs.json</button><button class="btn ghost" id="reset-data" type="button">Reset</button></div>
-    <p class="admin-note">Edits save in this browser only. Export, then replace <code>data/runs.json</code> to publish them to everyone.</p>
+    <p class="admin-note">Changes here go live for everyone within a few seconds.</p>
   </div>
 </div></div>
 <div class="toast" id="toast" role="status"></div>
