@@ -1,0 +1,5 @@
+:root{--bg:#fff;--surface:#fff;--soft:#f3f4f7;--text:#1b1b1b;--head:#303238;--mute:#6b7280;--line:#e3e5e8;
+--accent:#4f535a;--accent-d:#303238;--danger:#d33;--btn:#0b0b0c;--btn-text:#fff;
+--shadow:0 5px 20px rgba(25,30,35,.05);--radius:12px;color-scheme:light}
+:root[data-theme=dark]{--bg:#141517;--surface:#1c1e21;--soft:#26292d;--text:#e8e9eb;--head:#f2f3f4;--mute:#9aa0a8;--line:#2f3337;
+--accent:#9aa3ae;--accent-d:#c3cad2;--btn:#f2f3f4;--btn-text:#111;--shadow:0 5px 20px rgba(0,0,0,.35);color-scheme:dark}

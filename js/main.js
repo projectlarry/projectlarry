@@ -1,0 +1,10 @@
+import{loadRuns,loadGallery}from'./store.js';
+import{renderBoard,renderStats}from'./render.js';
+import{buildGallery}from'./gallery.js';
+import{initTheme}from'./theme.js';
+const $=id=>document.getElementById(id);
+let runs=[],query='';
+initTheme($('theme'));
+const draw=()=>{renderStats(runs);renderBoard(runs,{query})};
+$('search').addEventListener('input',e=>{query=e.target.value.trim();draw()});
+Promise.all([loadRuns(),loadGallery()]).then(([r,g])=>{runs=r;buildGallery(g);draw();if(location.hash)$(location.hash.slice(1))?.scrollIntoView()});

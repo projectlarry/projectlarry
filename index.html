@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Projectlarry.lol</title>
+<meta name="description" content="How fast can you finish it? Fastest verified time takes #1.">
+<meta name="theme-color" content="#fee751">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Projectlarry.lol">
+<meta property="og:title" content="The Commission List">
+<meta property="og:description" content="The 7-Frame Standard. How fast can you finish it? Fastest verified time takes #1.">
+<meta property="og:url" content="https://projectlarry.lol/">
+<meta property="og:image" content="https://projectlarry.lol/assets/img/logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Commission List">
+<meta name="twitter:description" content="The 7-Frame Standard. Fastest verified time takes #1.">
+<meta name="twitter:image" content="https://projectlarry.lol/assets/img/logo.png">
+<link rel="icon" href="assets/img/logo.png?v=3" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/tokens.css"><link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css"><link rel="stylesheet" href="css/gallery.css"><link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+<header><div class="bar">
+  <a class="logo" href="#top"><img src="assets/img/logo.png?v=3" alt="" width="36" height="30">Projectlarry.lol</a>
+  <div class="bar-right"><button class="icon-btn" id="theme" type="button" aria-label="Toggle dark mode" title="Toggle theme">◐</button></div>
+</div></header>
+<div class="gallery" id="top" aria-hidden="true"><div class="gallery-track" id="gallery-track"></div><div class="gallery-fade"></div></div>
+<section class="hero">
+  <span class="pill">The 7-Frame Standard</span>
+  <h1>The Commission List</h1>
+  <p>How fast can you finish it? Fastest verified time takes #1.</p>
+  <div class="search"><label class="sr" for="search">Search runs</label><input id="search" type="search" placeholder="Search designer or client…"></div>
+</section>
+<section class="stats" id="stats" aria-label="Leaderboard stats"></section>
+<main>
+  <section id="list"><div id="board" aria-live="polite"></div></section>
+  <aside>
+    <div class="card col" id="rules">
+      <h2>Rules</h2>
+      <ul class="rules">
+        <li><span>1.</span><span>Complete all 7 frames from the same fixed brief.</span></li>
+        <li><span>2.</span><span>Timer starts when you open the brief and stops when you submit.</span></li>
+        <li><span>3.</span><span>Screen-record the entire run as proof.</span></li>
+        <li><span>4.</span><span>Fastest time ranks highest.</span></li>
+      </ul>
+    </div>
+  </aside>
+</main>
+<footer>Times are verified from full screen recordings.</footer>
+<div class="toast" id="toast" role="status"></div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
