@@ -3,3 +3,8 @@
 --shadow:0 5px 20px rgba(25,30,35,.05);--radius:12px;color-scheme:light}
 :root[data-theme=dark]{--bg:#141517;--surface:#1c1e21;--soft:#26292d;--text:#e8e9eb;--head:#f2f3f4;--mute:#9aa0a8;--line:#2f3337;
 --accent:#9aa3ae;--accent-d:#c3cad2;--btn:#f2f3f4;--btn-text:#111;--shadow:0 5px 20px rgba(0,0,0,.35);color-scheme:dark}
+/* Prevent the first paint from appearing as the light theme. */
+html:not([data-theme]) {
+  background: #111;
+  color-scheme: dark;
+}
