@@ -63,9 +63,9 @@ $('f').addEventListener('submit',async e=>{
     if(shr.join('').length>700000)shr=await Promise.all(proofs.map(f=>shrink(f,800,.5)));
     const thumb=await shrink(proofs[0],240,.5),img=cardFile?await cover(cardFile):'';
     const r=await fetch('/api/submit',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({cat,name:$('n').value.trim(),ms:parse($('t').value),client:$('c').value.trim(),video:$('v').value.trim(),proofs:shr,thumb,img,website:$('website').value})});
+      body:JSON.stringify({cat,name:$('n').value.trim(),ms:parse($('t').value),client:$('c').value.trim(),video:$('v').value.trim(),proofs:shr,thumb,img,website:$('website').value,timerId:window.__timer&&window.__timer.id,timerCode:window.__timer&&window.__timer.code})});
     const j=await r.json().catch(()=>({}));
     if(!r.ok)throw new Error(j.error||'Something went wrong. Try again.');
-    $('f').hidden=true;$('prog').hidden=true;$('done').hidden=false;window.scrollTo({top:0,behavior:'smooth'})
+    try{localStorage.removeItem('tcl.timer')}catch{}$('f').hidden=true;$('prog').hidden=true;$('done').hidden=false;window.scrollTo({top:0,behavior:'smooth'})
   }catch(err){$('msg').textContent=err.message;btn.disabled=false;btn.textContent='Submit run'}
 });

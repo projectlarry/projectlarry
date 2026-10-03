@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Client Bulletin | Projectlarry.lol</title>
+<meta name="description" content="Commission offers from clients. Pick one up for practice or a timed run.">
+<link rel="icon" href="/assets/img/logo.png" type="image/png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/css/tokens.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/components.css"><link rel="stylesheet" href="/css/dialog.css"><link rel="stylesheet" href="/css/bulletin.css">
+</head>
+<body>
+<header><div class="bar bar3">
+  <a class="logo" href="/"><img src="/assets/img/logo.png" alt="" width="36" height="30">Projectlarry.lol</a>
+  <nav><a href="/timer/">Timer</a><a class=on href="/bulletin/">Client Bulletin</a></nav>
+  <div class="bar-right"><a class="btn-sm" href="/submit/">Submit a run</a><button class="icon-btn" id="theme" type="button" aria-label="Toggle dark mode" title="Toggle theme">&#9680;</button></div>
+</div></header>
+<main class="bl-wrap">
+  <div class="bl-head">
+    <div><h1>Client Bulletin</h1><p class="intro">Clients post a commission here. Designers can pick one up and use it for practice or a timed run.</p></div>
+    <button class="btn" id="post" type="button">Post an offer</button>
+  </div>
+  <div class="notice">This site does not handle payments or contracts. Agree terms with the client directly, and be careful about sharing personal details or paying anyone in advance.</div>
+  <div class="tabs" id="ftabs"></div>
+  <div id="offers"></div>
+</main>
+<dialog id="odlg">
+  <form id="of" class="dform">
+    <h3>Post an offer</h3>
+    <label for="ocat">Frame category</label><select id="ocat"></select>
+    <label for="od">What do you need designed?</label>
+    <textarea id="od" rows="5" maxlength="600" placeholder="Describe the screens you want, the game style, and any requirements."></textarea><div class="hint" id="ocount">0/600</div>
+    <label for="ou">Your Discord username</label><input id="ou" placeholder="username" maxlength="33" autocomplete="off">
+    <label for="oa">Profile picture</label><input id="oa" type="file" accept="image/*"><div class="aprev" id="aprev"></div>
+    <label class="check"><input type="checkbox" id="ocon"> I agree that designers may use this brief for practice and timed runs.</label>
+    <input class="hp" id="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div id="omsg"></div>
+    <div class="row2"><button class="btn ghost" type="button" id="ocx">Cancel</button><button class="btn" type="submit" id="osub">Submit offer</button></div>
+  </form>
+  <div class="ok" id="odone" hidden><h3>Thanks, your offer was submitted.</h3><p class="intro">It will appear on the bulletin once it has been reviewed.</p><button class="btn" id="oclose" type="button">Close</button></div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+<script type="module" src="/js/bulletin-page.js"></script>
+</body></html>

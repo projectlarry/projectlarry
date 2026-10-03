@@ -25,3 +25,7 @@ dialog h3{margin:0 0 10px;color:var(--head)}.dmsg{color:var(--mute);font-size:.9
 .lb{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:50;overflow:auto;padding:20px;display:grid;gap:14px;justify-items:center;align-content:start}
 .lb img{max-width:min(1000px,100%);border-radius:6px}
 .lbtop{display:flex;align-items:center;gap:16px;color:#fff;width:min(1000px,100%);justify-content:space-between}
+
+.sec-title{font-size:.78rem;letter-spacing:1px;text-transform:uppercase;color:var(--mute);margin:0 0 12px;font-weight:700}
+.ocard{grid-template-columns:72px 1fr auto;align-items:start}.tcard{grid-template-columns:1fr auto}
+.odesc{white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0;font-size:.92rem;color:var(--text);line-height:1.5}

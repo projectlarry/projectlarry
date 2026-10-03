@@ -1,0 +1,8 @@
+[hidden]{display:none!important}
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--text);padding:22px;width:min(460px,92vw)}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+dialog h3{margin:0 0 10px;color:var(--head)}.dmsg{color:var(--mute);font-size:.92rem;margin:0 0 18px;line-height:1.5}
+.dform{display:grid;gap:8px}.dform label{font-size:.78rem;font-weight:700;color:var(--mute);margin-top:4px}
+.dform input:not([type=checkbox]),.dform select,.dform textarea{width:100%;padding:11px 12px}
+.dform textarea{border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;resize:vertical}
+.hint{font-size:.78rem;color:var(--mute);min-height:1em}

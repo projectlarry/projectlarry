@@ -16,9 +16,10 @@
 <link rel="stylesheet" href="css/layout.css"><link rel="stylesheet" href="css/gallery.css"><link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-<header><div class="bar">
-  <a class="logo" href="#top"><img src="assets/img/logo.png?v=3" alt="" width="36" height="30">Projectlarry.lol</a>
-  <div class="bar-right"><a class="btn-sm" href="/submit/">Submit a run</a><button class="icon-btn" id="theme" type="button" aria-label="Toggle dark mode" title="Toggle theme">◐</button></div>
+<header><div class="bar bar3">
+  <a class="logo" href="/"><img src="/assets/img/logo.png" alt="" width="36" height="30">Projectlarry.lol</a>
+  <nav><a href="/timer/">Timer</a><a href="/bulletin/">Client Bulletin</a></nav>
+  <div class="bar-right"><a class="btn-sm" href="/submit/">Submit a run</a><button class="icon-btn" id="theme" type="button" aria-label="Toggle dark mode" title="Toggle theme">&#9680;</button></div>
 </div></header>
 <div class="gallery" id="top" aria-hidden="true"><div class="gallery-track" id="gallery-track"></div><div class="gallery-fade"></div></div>
 <section class="hero">
@@ -28,6 +29,7 @@
   <div class="search"><label class="sr" for="search">Search runs</label><input id="search" type="search" placeholder="Search designer or client…"></div>
 </section>
 <section class="stats" id="stats" aria-label="Leaderboard stats"></section>
+<section class="upcoming" id="upcoming" hidden><div class="up-head"><span class="live-dot"></span><span>Upcoming runs</span></div><div class="up-list"></div></section>
 <main>
   <section id="list">
     <div class="tabs" id="tabs" role="tablist"></div>

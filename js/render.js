@@ -20,6 +20,7 @@ export function renderBoard(runs,{cat=7,query='',admin=false,onEdit,onDelete}={}
     if(r.client){const by=el('div','by','commissioned by ');by.appendChild(el('u',null,r.client));info.appendChild(by)}
     else info.appendChild(el('div','by','client not listed'));
     const meta=el('div','meta');meta.appendChild(el('strong',null,fmt(r.ms)));
+    if(r.verified)meta.appendChild(el('span','vbadge','Timer verified'));
     if(rank>1)meta.appendChild(el('span',null,'\u2014 +'+fmt(r.ms-all[0].ms)+' behind #1'));
     const link=safeUrl(r.video||'');
     if(link){const a=el('a',null,'Watch proof');a.href=link;a.target='_blank';a.rel='noopener noreferrer';meta.appendChild(a)}

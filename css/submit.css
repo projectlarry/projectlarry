@@ -27,3 +27,6 @@ input.bad{border-color:var(--danger)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .ok{text-align:center;padding:24px 6px}.ok h3{margin:0 0 8px;font-size:1.3rem;color:var(--head)}
 .intro{color:var(--mute);font-size:.92rem;margin:0 0 16px;line-height:1.5}
+
+.tbanner{background:var(--soft);border-radius:10px;padding:12px 14px;margin-bottom:16px;font-size:.88rem;color:var(--head);display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.tbanner button{border:none;background:none;color:var(--accent);font:inherit;font-weight:700;cursor:pointer;text-decoration:underline}

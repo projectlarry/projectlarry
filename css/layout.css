@@ -26,3 +26,7 @@ footer{text-align:center;color:var(--mute);font-size:.78rem;padding:10px 20px 30
 .logo{display:inline-flex;align-items:center;gap:10px}.logo img{height:22px;width:auto;display:block}
 
 .logo{display:inline-flex;align-items:center;gap:10px}.logo img{height:22px;width:auto;display:block}
+
+/*hdr2*/
+nav a.on{color:var(--head)}
+@media(max-width:860px){.bar3{grid-template-columns:auto 1fr;height:auto;min-height:64px;padding-top:8px;padding-bottom:8px;row-gap:6px}.bar3 nav{display:flex;grid-column:1/-1;order:3;gap:22px;overflow-x:auto;padding-bottom:4px}}

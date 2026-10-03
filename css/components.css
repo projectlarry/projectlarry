@@ -26,3 +26,16 @@
 .tab:hover{color:var(--head)}
 .tab[aria-selected=true]{background:var(--btn);color:var(--btn-text);border-color:var(--btn)}
 .tab i{font-style:normal;margin-left:8px;background:rgba(127,127,127,.22);border-radius:999px;padding:1px 7px;font-size:.72rem}
+
+.upcoming{max-width:1100px;margin:0 auto 22px;padding:0 20px}.upcoming[hidden]{display:none}
+.up-head{display:flex;align-items:center;gap:10px;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;color:var(--mute);margin-bottom:10px;font-weight:700}
+.live-dot{width:8px;height:8px;border-radius:50%;background:#2ecc71;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(46,204,113,.6)}70%{box-shadow:0 0 0 8px rgba(46,204,113,0)}100%{box-shadow:0 0 0 0 rgba(46,204,113,0)}}
+.up-list{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px}
+.up-card{flex:none;min-width:210px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.up-card b{display:block;color:var(--head)}.up-card .up-cat{font-size:.78rem;color:var(--mute)}
+.up-card .up-time{display:block;font-variant-numeric:tabular-nums;font-size:1.1rem;color:var(--head);margin-top:6px;font-weight:700}
+.badge{display:inline-block;background:var(--soft);color:var(--head);border-radius:999px;padding:3px 10px;font-size:.72rem;font-weight:700}
+.vbadge{background:#d9f5e5;color:#17653a;border-radius:999px;padding:2px 9px;font-size:.72rem;font-weight:700}
+.btn.red{background:var(--danger);color:#fff}.btn.sm{padding:9px 16px;font-size:.82rem}
+.ava{width:56px;height:56px;border-radius:50%;object-fit:cover;background:var(--soft);flex:none;display:block}
