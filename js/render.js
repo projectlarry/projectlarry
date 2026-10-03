@@ -1,15 +1,16 @@
 import{fmt,safeUrl,safeImg,el,ico,toast}from'./utils.js';
 import{assetUrl}from'./store.js';
-export const sorted=runs=>runs.slice().sort((a,b)=>a.ms-b.ms);
-export function renderStats(runs){
-  const s=sorted(runs),box=document.getElementById('stats');box.textContent='';
+import{inCat}from'./cats.js';
+export const sorted=(runs,cat)=>(cat?inCat(runs,cat):runs).slice().sort((a,b)=>a.ms-b.ms);
+export function renderStats(runs,cat){
+  const s=sorted(runs,cat),box=document.getElementById('stats');box.textContent='';
   const avg=s.length?s.reduce((a,r)=>a+r.ms,0)/s.length:0;
-  [['Runs',s.length],['Fastest',s.length?fmt(s[0].ms):'—'],['Average',s.length?fmt(Math.round(avg)):'—'],['Lead over #2',s.length>1?'-'+fmt(s[1].ms-s[0].ms):'—']]
+  [['Runs',s.length],['Fastest',s.length?fmt(s[0].ms):'\u2014'],['Average',s.length?fmt(Math.round(avg)):'\u2014'],['Lead over #2',s.length>1?'-'+fmt(s[1].ms-s[0].ms):'\u2014']]
    .forEach(([l,v])=>{const d=el('div','stat');d.append(el('b',null,String(v)),el('span',null,l));box.appendChild(d)})}
-export function renderBoard(runs,{query='',admin=false,onEdit,onDelete}={}){
-  const board=document.getElementById('board'),all=sorted(runs),q=query.toLowerCase();board.textContent='';
+export function renderBoard(runs,{cat=7,query='',admin=false,onEdit,onDelete}={}){
+  const board=document.getElementById('board'),all=sorted(runs,cat),q=query.toLowerCase();board.textContent='';
   const rows=all.map((r,i)=>({r,rank:i+1})).filter(({r})=>!q||(r.name+' '+(r.client||'')).toLowerCase().includes(q));
-  if(!rows.length){const e=el('div','empty');e.appendChild(ico('trophy'));e.appendChild(el('div',null,q?'No matches.':'No runs yet. Be the first on the list.'));board.appendChild(e);return}
+  if(!rows.length){const e=el('div','empty');e.appendChild(ico('trophy'));e.appendChild(el('div',null,q?'No matches.':'No '+cat+' frame runs yet. Be the first on the list.'));board.appendChild(e);return}
   rows.forEach(({r,rank})=>{
     const card=el('article','card');card.id='run-'+r.id;
     const th=el('div','thumb'),img=safeImg(r.img);
@@ -28,5 +29,5 @@ export function renderBoard(runs,{query='',admin=false,onEdit,onDelete}={}){
     cp.onclick=()=>{const u=location.origin+location.pathname.replace(/admin\/?$/,'')+'#run-'+r.id;(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>toast('Link copied'),()=>toast(u))};
     acts.appendChild(cp);
     if(admin){const ed=el('button');ed.title='Edit';ed.appendChild(ico('edit'));ed.onclick=()=>onEdit(r);
-      const x=el('button','del');x.title='Remove';x.appendChild(ico('trash'));x.onclick=()=>confirm('Remove "'+r.name+'"?')&&onDelete(r);acts.append(ed,x)}
+      const x=el('button','del');x.title='Remove';x.appendChild(ico('trash'));x.onclick=()=>onDelete(r);acts.append(ed,x)}
     card.appendChild(acts);board.appendChild(card)})}

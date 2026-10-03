@@ -8,7 +8,7 @@ module.exports=async(req,res)=>{
     const a=(await redis('HGETALL','subs'))||[];
     const vals=Array.isArray(a)?a.filter((_,i)=>i%2):Object.values(a);
     const list=[];
-    for(const v of vals){try{const s=JSON.parse(v);list.push({id:s.id,name:s.name,ms:s.ms,client:s.client,video:s.video,at:s.at,proofCount:(s.proofs||[]).length})}catch{}}
+    for(const v of vals){try{const s=JSON.parse(v);list.push({id:s.id,name:s.name,ms:s.ms,client:s.client,video:s.video,cat:s.cat||7,thumb:s.thumb||'',at:s.at,proofCount:(s.proofs||[]).length})}catch{}}
     list.sort((x,y)=>y.at-x.at);
     res.status(200).json({submissions:list});
   }catch(e){res.status(500).json({error:e.message})}

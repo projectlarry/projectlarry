@@ -6,39 +6,54 @@
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/img/logo.png" type="image/png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="/css/tokens.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/components.css">
-<style>
-[hidden]{display:none!important}.sub-wrap{max-width:560px;margin:34px auto;padding:0 20px}
-.sub-wrap form{display:grid;gap:10px}.sub-wrap label{font-size:.78rem;font-weight:700;color:var(--mute)}
-.hint{font-size:.78rem;color:var(--mute);margin:-4px 0 2px}.intro{color:var(--mute);font-size:.92rem;margin:0 0 16px;line-height:1.5}
-.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}.ok{text-align:center;padding:26px 6px}.ok h3{margin:0 0 8px;color:var(--head)}
-</style>
+<link rel="stylesheet" href="/css/tokens.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/components.css"><link rel="stylesheet" href="/css/submit.css">
 </head>
 <body>
 <header><div class="bar">
   <a class="logo" href="/"><img src="/assets/img/logo.png" alt="" width="36" height="30">Projectlarry.lol</a>
   <div class="bar-right"><button class="icon-btn" id="theme" type="button" aria-label="Toggle dark mode">&#9680;</button></div>
 </div></header>
-<main class="sub-wrap" style="display:block">
-  <div class="card col">
-    <h2>Submit a run</h2>
-    <p class="intro">Finished a 7 frame commission and tracked your time? Send it in with proof. Submissions are reviewed before they are listed.</p>
-    <form id="f">
-      <input id="n" placeholder="Designer name" required maxlength="40">
-      <input id="t" placeholder="Your time (e.g. 2:34:54 or 2h 34m 54s)" required>
-      <input id="c" placeholder="Client name (optional)" maxlength="60">
-      <div class="hint">Leave blank if your client wants to stay private.</div>
-      <label for="p">Proof of your time (required, up to 3 images)</label>
-      <input id="p" type="file" accept="image/*" multiple required>
-      <div class="hint">Screenshots from a time tracker, screen recording timestamps, etc.</div>
-      <input id="v" placeholder="Recording link (optional, https://...)">
-      <label for="card">Picture for your card (optional)</label>
-      <input id="card" type="file" accept="image/*">
+<main class="sub-wrap">
+  <div class="card col sub-card">
+    <div id="prog"><div class="progress"><div id="pfill"></div></div><div class="step-label" id="slabel">Step 1 of 3</div></div>
+    <form id="f" novalidate>
+      <section class="step" data-step="1">
+        <h2>Your run</h2>
+        <p class="intro">Finished a commission and tracked your time? Send it in with proof. Submissions are reviewed before they are listed.</p>
+        <label>Category</label>
+        <div class="cats" id="cats" role="radiogroup" aria-label="Category"></div>
+        <label for="n">Designer name</label>
+        <input id="n" placeholder="Your name" maxlength="40" autocomplete="off"><div class="err" id="e-n"></div>
+        <label for="t">Your time</label>
+        <input id="t" placeholder="2:34:54 or 2h 34m 54s" autocomplete="off"><div class="preview" id="tprev">Total time, like 2:34:54 or 2h 34m 54s</div><div class="err" id="e-t"></div>
+      </section>
+      <section class="step" data-step="2" hidden>
+        <h2>Details</h2>
+        <label for="c">Client name (optional)</label>
+        <input id="c" placeholder="Who was it for?" maxlength="60" autocomplete="off">
+        <div class="hint">Leave blank if your client wants to stay private.</div>
+        <label for="v">Recording link (optional)</label>
+        <input id="v" placeholder="https://..." autocomplete="off"><div class="err" id="e-v"></div>
+        <label for="card">Picture for your card (optional)</label>
+        <input id="card" type="file" accept="image/*"><div class="cprev" id="cprev"></div>
+      </section>
+      <section class="step" data-step="3" hidden>
+        <h2>Proof</h2>
+        <p class="intro">Add up to 3 images that show your time, like time tracker screenshots.</p>
+        <div class="drop" id="drop" tabindex="0" role="button">Drop images here, paste, or click to browse<br><small>Up to 3 images</small></div>
+        <input id="p" type="file" accept="image/*" multiple hidden>
+        <div class="thumbs" id="thumbs"></div><div class="err" id="e-p"></div>
+        <div class="summary" id="summary"></div>
+      </section>
       <input class="hp" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button class="btn" type="submit" id="sb">Submit run</button>
+      <div class="nav">
+        <button type="button" class="btn ghost" id="back" hidden>Back</button>
+        <button type="button" class="btn" id="next">Continue</button>
+        <button type="submit" class="btn" id="sb" hidden>Submit run</button>
+      </div>
     </form>
     <div id="msg"></div>
-    <div class="ok" id="done" hidden><h3>Thanks, your run was submitted.</h3><p class="intro">It will show up on the list once it has been reviewed.</p><a class="btn" href="/">Back to the list</a></div>
+    <div class="ok" id="done" hidden><h3>Thanks, your run was submitted.</h3><p class="intro">It will show up on the list once it has been reviewed.</p><a class="btn" href="/submit/">Submit another run</a></div>
   </div>
 </main>
 <script type="module" src="/js/submit-page.js"></script>

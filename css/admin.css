@@ -1,0 +1,27 @@
+[hidden]{display:none!important}
+.login{max-width:340px;margin:18vh auto;padding:0 20px}.login form{display:grid;gap:10px}
+.ahead{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.abar{max-width:1100px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.abar .logo{margin-right:auto}
+.abar .tabs{margin:0;overflow-x:auto;flex-wrap:nowrap}
+.amain{max-width:1100px;margin:22px auto 60px;padding:0 20px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}.toolbar .grow{flex:1;min-width:180px}
+.toolbar .tabs{margin:0}
+.scard{display:grid;grid-template-columns:150px 1fr auto;gap:18px;align-items:center;padding:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;margin-bottom:14px}
+.sthumb{width:150px;height:96px;border:none;padding:0;border-radius:6px;overflow:hidden;background:var(--soft);cursor:zoom-in;display:grid;place-items:center;color:var(--mute)}
+.sthumb img{width:100%;height:100%;object-fit:cover}
+.scard h3{margin:0 0 6px;font-size:1.1rem;color:var(--head)}
+.scard .line{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:.88rem;color:var(--mute);margin-top:4px}
+.scard .line a{color:var(--accent);font-weight:600}
+.badge{background:var(--soft);color:var(--head);border-radius:999px;padding:3px 10px;font-size:.72rem;font-weight:700}
+.sact{display:flex;flex-direction:column;gap:8px}
+.btn.sm{padding:9px 16px;font-size:.82rem}.btn.red{background:var(--danger);color:#fff}
+@media(max-width:640px){.scard{grid-template-columns:1fr}.sthumb{width:100%;height:auto;aspect-ratio:16/9}.sact{flex-direction:row}.sact .btn{flex:1}}
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--text);padding:22px;width:min(440px,92vw)}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+dialog h3{margin:0 0 10px;color:var(--head)}.dmsg{color:var(--mute);font-size:.92rem;margin:0 0 18px;line-height:1.5}
+.dform{display:grid;gap:8px}.dform label{font-size:.78rem;font-weight:700;color:var(--mute);margin-top:4px}
+.dform input,.dform select{width:100%;padding:11px 12px}.hint{font-size:.78rem;color:var(--mute);min-height:1em}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:50;overflow:auto;padding:20px;display:grid;gap:14px;justify-items:center;align-content:start}
+.lb img{max-width:min(1000px,100%);border-radius:6px}
+.lbtop{display:flex;align-items:center;gap:16px;color:#fff;width:min(1000px,100%);justify-content:space-between}

@@ -20,3 +20,9 @@
 .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--head);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:.82rem;opacity:0;pointer-events:none;transition:opacity .2s}.toast.show{opacity:1}
 @media(max-width:560px){.card{flex-wrap:wrap}.thumb{width:100%;height:auto;aspect-ratio:16/9}}
 .rules li>span:first-child{width:1.4em;flex:none}
+
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab{border:1px solid var(--line);background:var(--surface);color:var(--mute);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;font-size:.85rem;cursor:pointer;white-space:nowrap}
+.tab:hover{color:var(--head)}
+.tab[aria-selected=true]{background:var(--btn);color:var(--btn-text);border-color:var(--btn)}
+.tab i{font-style:normal;margin-left:8px;background:rgba(127,127,127,.22);border-radius:999px;padding:1px 7px;font-size:.72rem}
