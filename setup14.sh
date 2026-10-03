@@ -1,3 +1,11 @@
+#!/bin/bash
+set -e
+
+echo "Fixing Updates page using the existing ProjectLarry layout..."
+
+mkdir -p updates
+
+cat > updates/index.html <<'HTML'
 <!doctype html>
 <html lang="en">
 <head>
@@ -314,3 +322,64 @@
 
 </body>
 </html>
+HTML
+
+echo "Updates page replaced."
+
+# Remove the old Updates-specific CSS we previously injected.
+python3 - <<'PY'
+from pathlib import Path
+
+path = Path("css/components.css")
+text = path.read_text(encoding="utf-8")
+
+markers = [
+    "/* Updates page */",
+    "/* =========================================\n   Updates\n   ========================================= */"
+]
+
+for marker in markers:
+    while marker in text:
+        start = text.index(marker)
+
+        # Find the next media block after the marker, then consume that
+        # block if it belongs to the old Updates styles.
+        rest = text[start:]
+        next_media = rest.find("@media")
+
+        if next_media == -1:
+            text = text[:start].rstrip() + "\n"
+            break
+
+        media_start = start + next_media
+        brace_start = text.find("{", media_start)
+
+        if brace_start == -1:
+            text = text[:start].rstrip() + "\n"
+            break
+
+        depth = 0
+        end = None
+
+        for i in range(brace_start, len(text)):
+            if text[i] == "{":
+                depth += 1
+            elif text[i] == "}":
+                depth -= 1
+                if depth == 0:
+                    end = i + 1
+                    break
+
+        if end is None:
+            text = text[:start].rstrip() + "\n"
+            break
+
+        text = text[:start] + text[end:]
+
+path.write_text(text.rstrip() + "\n", encoding="utf-8")
+print("Removed old Updates CSS from components.css.")
+PY
+
+echo
+echo "Done."
+echo "Open /updates/ and hard refresh with Ctrl+Shift+R."
