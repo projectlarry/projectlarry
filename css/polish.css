@@ -137,3 +137,9 @@ input,select{border-radius:12px}
 .stat,.up-card,.scard{border-radius:14px}
 .drop,.summary,.tbanner{border-radius:12px}
 .drop{border-width:1.5px}
+
+/* POLISH-V5: one look for every text field */
+.card input:not([type=file]):not([type=search]):not(.hp),dialog input:not([type=file]),dialog select,.inp,.ta{background:var(--bg)}
+.inp input,.ta textarea{background:none}
+input::placeholder,textarea::placeholder{color:var(--mute);opacity:.65}
+.dform label{font-size:.8rem;color:var(--head)}
