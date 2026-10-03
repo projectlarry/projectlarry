@@ -135,3 +135,7 @@
   color: inherit;
 }
 
+
+
+/* 7 Frame: original standard marker */
+.tab.standard-7-frame:not([aria-selected="true"]),.pillbtn.standard-7-frame:not([aria-checked="true"]),.seg button.standard-7-frame:not([aria-checked="true"]){background:var(--surface)!important;border-color:var(--line)!important;color:var(--mute)!important;font-weight:600!important;box-shadow:none!important;filter:none!important}.tab.standard-7-frame:not([aria-selected="true"])::before,.pillbtn.standard-7-frame:not([aria-checked="true"])::before,.seg button.standard-7-frame:not([aria-checked="true"])::before{content:"✓";display:inline-block;margin-right:5px;color:currentColor;opacity:.42;font-size:.72em;font-weight:700;line-height:1;vertical-align:.08em}
