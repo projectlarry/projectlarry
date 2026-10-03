@@ -123,3 +123,17 @@ input,select{border-radius:12px}
 /* admin: same pills as the rest of the site, no track */
 #ctabs,#atabs{gap:8px;padding:0;background:none;border:0;border-radius:0}
 #ctabs .tab,#atabs .tab{background:var(--surface);border:1px solid var(--line);padding:0 14px}
+
+/* POLISH-V4: button + pill consistency */
+.btn-sm{border-radius:999px;padding:10px 18px;font-size:.85rem;line-height:1}
+
+/* 7-frame pill: force it identical to its siblings */
+.tab.standard-7-frame:not([aria-selected=true]),.pillbtn.standard-7-frame:not([aria-checked=true]),.seg button.standard-7-frame:not([aria-checked=true]){background:var(--surface)!important;border:1px solid var(--line)!important;color:var(--mute)!important;font-weight:600!important;opacity:1!important}
+.tab.standard-7-frame:not([aria-selected=true]):hover,.pillbtn.standard-7-frame:not([aria-checked=true]):hover,.seg button.standard-7-frame:not([aria-checked=true]):hover{background:var(--soft)!important;color:var(--head)!important}
+.tab.standard-7-frame:not([aria-selected=true])::before,.pillbtn.standard-7-frame:not([aria-checked=true])::before,.seg button.standard-7-frame:not([aria-checked=true])::before{opacity:.8;font-size:.8em}
+.seg button b{font-weight:700}
+
+/* one corner radius per kind of thing */
+.stat,.up-card,.scard{border-radius:14px}
+.drop,.summary,.tbanner{border-radius:12px}
+.drop{border-width:1.5px}
