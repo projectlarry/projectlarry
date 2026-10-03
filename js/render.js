@@ -5,7 +5,7 @@ export const sorted=(runs,cat)=>(cat?inCat(runs,cat):runs).slice().sort((a,b)=>a
 export function renderStats(runs,cat){
   const s=sorted(runs,cat),box=document.getElementById('stats');box.textContent='';
   const avg=s.length?s.reduce((a,r)=>a+r.ms,0)/s.length:0;
-  [['Runs',s.length],['Fastest',s.length?fmt(s[0].ms):'\u2014'],['Average',s.length?fmt(Math.round(avg)):'\u2014'],['Lead over #2',s.length>1?'-'+fmt(s[1].ms-s[0].ms):'\u2014']]
+  [['Runs',s.length],['Fastest',s.length?fmt(s[0].ms):'\u2014'],['Average',s.length?fmt(Math.round(avg)):'\u2014'],['Lead over #2',s.length>1?'+'+fmt(s[1].ms-s[0].ms):'\u2014']]
    .forEach(([l,v])=>{const d=el('div','stat');d.append(el('b',null,String(v)),el('span',null,l));box.appendChild(d)})}
 export function renderBoard(runs,{cat=7,query='',admin=false,onEdit,onDelete}={}){
   const board=document.getElementById('board'),all=sorted(runs,cat),q=query.toLowerCase();board.textContent='';
