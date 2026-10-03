@@ -1,3 +1,4 @@
+import{stagger}from './motion.js';
 import{fmt,el,toast}from'./utils.js';
 import{CATS}from'./cats.js';
 import{initTheme}from'./theme.js';
@@ -56,3 +57,9 @@ $('copy').onclick=()=>{navigator.clipboard.writeText(st.code).then(()=>toast('Re
 (async()=>{
   if(st){try{const j=await api({action:'resume',code:st.code});st=j;off=j.now-Date.now();persist()}catch(e){if(e.status===404){st=null;persist()}}}
   render()})();
+
+
+requestAnimationFrame(()=>{
+  stagger(document.querySelector('#upcoming'));
+  stagger(document.querySelector('#board'));
+});

@@ -1,3 +1,4 @@
+import{stagger}from './motion.js';
 import{loadRuns,loadGallery}from'./store.js';
 import{renderBoard,renderStats}from'./render.js';
 import{buildGallery}from'./gallery.js';
@@ -18,3 +19,8 @@ Promise.all([loadRuns(),loadGallery()]).then(([r,g])=>{
   runs=r;buildGallery(g);
   const m=location.hash.match(/^#run-(.+)$/),hit=m&&runs.find(x=>x.id===m[1]);if(hit)cat=catOf(hit);
   draw();if(m)document.getElementById('run-'+m[1])?.scrollIntoView()});
+
+
+requestAnimationFrame(()=>{
+  stagger(document.querySelector('#board'));
+});

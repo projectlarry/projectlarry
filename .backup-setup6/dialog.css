@@ -6,32 +6,3 @@ dialog h3{margin:0 0 10px;color:var(--head)}.dmsg{color:var(--mute);font-size:.9
 .dform input:not([type=checkbox]),.dform select,.dform textarea{width:100%;padding:11px 12px}
 .dform textarea{border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;resize:vertical}
 .hint{font-size:.78rem;color:var(--mute);min-height:1em}
-
-/* Setup 6 dialog polish */
-dialog {
-  overflow: hidden;
-  transform-origin: center;
-}
-
-dialog::backdrop {
-  background: rgba(0,0,0,.48);
-}
-
-dialog .row2 {
-  margin-top: 4px;
-}
-
-dialog input,
-dialog select,
-dialog textarea {
-  transition:
-    border-color .16s ease,
-    background-color .16s ease,
-    box-shadow .16s ease;
-}
-
-dialog input:focus,
-dialog select:focus,
-dialog textarea:focus {
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 12%, transparent);
-}

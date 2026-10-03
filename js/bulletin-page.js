@@ -1,3 +1,4 @@
+import{stagger,animateIn}from './motion.js';
 import{el,toast,safeImg,ico}from'./utils.js';
 import{cover}from'./images.js';
 import{CATS}from'./cats.js';
@@ -125,3 +126,9 @@ $('of').addEventListener('submit',async e=>{
   }catch(err){fail('f-c',err.message)}
   $('f-c').classList.remove('bad');
   busy=false;btn.disabled=false;btn.textContent='Submit offer'});
+
+
+requestAnimationFrame(()=>{
+  stagger(document.querySelector('#offers'));
+  stagger(document.querySelector('#board'));
+});

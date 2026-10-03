@@ -1,3 +1,4 @@
+import{stagger,animateIn}from './motion.js';
 import{loadRuns}from'./store.js';
 import{renderBoard}from'./render.js';
 import{initAdmin}from'./admin.js';
@@ -135,3 +136,16 @@ $('lf').addEventListener('submit',async e=>{e.preventDefault();pw=$('pw').value;
   try{await enter();sessionStorage.setItem('tcl.pw',pw)}catch(err){$('lmsg').textContent=err.status===401?'Wrong password.':err.message}});
 $('logout').onclick=()=>{sessionStorage.removeItem('tcl.pw');location.reload()};
 if(pw)enter().catch(()=>sessionStorage.removeItem('tcl.pw'));
+
+
+function refreshMotion(){
+  requestAnimationFrame(()=>{
+    stagger(document.querySelector('#subs'));
+    stagger(document.querySelector('#board'));
+    stagger(document.querySelector('#opend'));
+    stagger(document.querySelector('#olive'));
+    stagger(document.querySelector('#tlist'));
+  });
+}
+
+window.addEventListener('load', refreshMotion);

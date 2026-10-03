@@ -1,0 +1,168 @@
+/* =========================================================
+   Project Larry - shared motion system
+   ========================================================= */
+
+@keyframes siteFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes siteFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes siteDialogIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes siteDialogOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(.985);
+  }
+}
+
+@keyframes siteSlide {
+  from {
+    opacity: 0;
+    transform: translateX(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Initial page sections */
+main > *,
+main > section > *,
+main > aside > * {
+  animation: siteFadeUp .38s ease both;
+}
+
+/* Cards get a subtle stagger without requiring JS */
+main > *:nth-child(2) { animation-delay: .035s; }
+main > *:nth-child(3) { animation-delay: .07s; }
+main > *:nth-child(4) { animation-delay: .105s; }
+
+/* Buttons */
+.btn,
+button,
+.pillbtn,
+.tab {
+  transition:
+    transform .16s ease,
+    opacity .16s ease,
+    background-color .16s ease,
+    border-color .16s ease,
+    color .16s ease,
+    box-shadow .16s ease;
+}
+
+.btn:hover,
+button:hover,
+.pillbtn:hover,
+.tab:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active,
+button:active,
+.pillbtn:active,
+.tab:active {
+  transform: translateY(0) scale(.985);
+}
+
+/* Inputs */
+input,
+select,
+textarea {
+  transition:
+    border-color .16s ease,
+    box-shadow .16s ease,
+    background-color .16s ease;
+}
+
+/* Cards */
+.card,
+.scard,
+.ocard,
+.tcard,
+.run-card,
+.offer-card {
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease;
+}
+
+/* Keep hover restrained. No glow. */
+.card:hover,
+.scard:hover,
+.ocard:hover,
+.tcard:hover,
+.run-card:hover,
+.offer-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Tabs */
+.tab[aria-selected="true"],
+.tab.active {
+  transition:
+    background-color .2s ease,
+    color .2s ease,
+    border-color .2s ease;
+}
+
+/* Native dialogs */
+dialog[open] {
+  animation: siteDialogIn .22s cubic-bezier(.2,.8,.2,1) both;
+}
+
+dialog::backdrop {
+  animation: siteFade .18s ease both;
+}
+
+/* Images */
+img {
+  transition: opacity .2s ease;
+}
+
+/* Utility */
+.motion-in {
+  animation: siteFadeUp .35s ease both;
+}
+
+.motion-slide {
+  animation: siteSlide .25s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
