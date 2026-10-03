@@ -1,3 +1,11 @@
+#!/usr/bin/env bash
+set -e
+
+cd /workspaces/projectlarry
+
+echo "==> Rebuilding Updates page..."
+
+cat > updates/index.html <<'HTML'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -180,3 +188,137 @@
   </script>
 </body>
 </html>
+HTML
+
+echo "==> Adding clean Updates styling..."
+
+cat >> css/components.css <<'CSS'
+
+/* =========================================
+   Updates
+   ========================================= */
+
+.updates-page {
+  width: min(900px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 90px 0 120px;
+}
+
+.updates-header {
+  margin-bottom: 56px;
+}
+
+.updates-header .section-eyebrow {
+  margin: 0 0 8px;
+}
+
+.updates-header h1 {
+  margin: 0;
+  font-size: clamp(38px, 6vw, 56px);
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.updates-header > p:last-child {
+  max-width: 560px;
+  margin: 16px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: .58;
+}
+
+.updates-list {
+  border-top: 1px solid var(--border, rgba(255,255,255,.12));
+}
+
+.update-item {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 36px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--border, rgba(255,255,255,.12));
+}
+
+.update-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.update-date {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  opacity: .45;
+}
+
+.update-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 8px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .07em;
+  opacity: .65;
+}
+
+.update-tag-new {
+  color: #fff;
+}
+
+.update-tag-improved {
+  opacity: .45;
+}
+
+.update-content h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: -.015em;
+}
+
+.update-content p {
+  max-width: 650px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  opacity: .58;
+}
+
+@media (max-width: 700px) {
+  .updates-page {
+    width: min(100% - 32px, 900px);
+    padding: 56px 0 80px;
+  }
+
+  .updates-header {
+    margin-bottom: 40px;
+  }
+
+  .update-item {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 24px 0;
+  }
+
+  .update-meta {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+CSS
+
+echo
+echo "==> Verifying Updates page..."
+
+grep -n "<title>" updates/index.html
+grep -n "Client Bulletin" updates/index.html
+grep -n "Vercel Analytics" updates/index.html || true
+grep -n "Commission List" updates/index.html
+
+echo
+echo "Done."
