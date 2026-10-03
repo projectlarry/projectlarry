@@ -168,22 +168,27 @@
 }
 
 
-/* Updates page */
-.updates-page {
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
-  max-width: none !important;
-  position: static !important;
+
+
+/* Updates page: override the global two-column main layout */
+main.updates-page {
+  display: block;
+  width: min(900px, calc(100% - 40px));
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 72px 0 100px;
+  position: static;
 }
 
-.updates-page .updates-hero,
-.updates-page .updates-list,
-.updates-page .updates-content,
-.updates-page .updates-main {
-  position: static !important;
-  top: auto !important;
-  right: auto !important;
-  bottom: auto !important;
-  left: auto !important;
-  transform: none !important;
+main.updates-page .updates-header,
+main.updates-page .updates-list {
+  position: static;
+  transform: none;
+}
+
+@media (max-width: 700px) {
+  main.updates-page {
+    width: min(100% - 32px, 900px);
+    padding: 52px 0 72px;
+  }
 }
