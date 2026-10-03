@@ -39,3 +39,64 @@
 .vbadge{background:#d9f5e5;color:#17653a;border-radius:999px;padding:2px 9px;font-size:.72rem;font-weight:700}
 .btn.red{background:var(--danger);color:#fff}.btn.sm{padding:9px 16px;font-size:.82rem}
 .ava{width:56px;height:56px;border-radius:50%;object-fit:cover;background:var(--soft);flex:none;display:block}
+
+/* Updates page */
+.updates-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 72px 0 100px;
+}
+
+.page-heading {
+  margin-bottom: 48px;
+}
+
+.page-heading .section-eyebrow {
+  margin-bottom: 8px;
+}
+
+.page-heading h1 {
+  margin: 0 0 10px;
+  font-size: clamp(32px, 5vw, 48px);
+  letter-spacing: -.03em;
+}
+
+.page-heading > p:last-child {
+  max-width: 600px;
+  margin: 0;
+  line-height: 1.6;
+  opacity: .58;
+}
+
+.updates-page .updates-list {
+  margin-top: 0;
+}
+
+.updates-page .update-item {
+  grid-template-columns: 120px minmax(0, 1fr);
+  padding: 28px 0;
+}
+
+.updates-page .update-content h2 {
+  margin: 0 0 7px;
+  font-size: 18px;
+  letter-spacing: -.01em;
+}
+
+.updates-page .update-content p {
+  margin: 0;
+  max-width: 650px;
+  line-height: 1.65;
+  opacity: .62;
+}
+
+@media (max-width: 700px) {
+  .updates-page {
+    padding: 48px 0 72px;
+  }
+
+  .updates-page .update-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
