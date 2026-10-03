@@ -120,3 +120,8 @@
 #of{animation:rise .25s ease both}
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}}
+
+.seg button.standard-7-frame {
+  border-radius: 9px;
+}
+

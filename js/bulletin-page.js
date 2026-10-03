@@ -12,7 +12,7 @@ const ago=ts=>{const s=(Date.now()-ts)/1000;if(s<3600)return Math.max(1,Math.rou
 function buildTabs(){
   const tb=$('ftabs');tb.textContent='';
   [0,...CATS].forEach(c=>{
-    const b=el('button','tab',c?c+' frame':'All');b.type='button';b.dataset.c=String(c);b.setAttribute('aria-selected',String(c===f));
+    const b=el('button','tab',c?c+' frame':'All');b.type='button';b.dataset.c=String(c);b.setAttribute('aria-selected',String(c===f));if(c===7)b.classList.add('standard-7-frame');
     const n=el('i',null,'0');b.appendChild(n);b.onclick=()=>{f=c;tabState();drawList()};tb.appendChild(b)})}
 function tabState(){
   document.querySelectorAll('#ftabs .tab').forEach(b=>{
@@ -41,7 +41,7 @@ fetch('/api/offers').then(r=>r.json()).then(j=>{offers=j.offers||[];tabState();d
 const seg=$('oseg');
 const ind=el('i','seg-ind');seg.appendChild(ind);
 CATS.forEach(c=>{
-  const b=el('button');b.type='button';b.setAttribute('role','radio');b.dataset.c=String(c);
+  const b=el('button');b.type='button';b.setAttribute('role','radio');b.dataset.c=String(c);if(c===7)b.classList.add('standard-7-frame');
   b.append(el('b',null,String(c)),el('small',null,'frame'));
   b.onclick=()=>setCat(c);seg.appendChild(b)});
 function setCat(c,focus){

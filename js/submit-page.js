@@ -8,7 +8,7 @@ let step=1,cat=7,proofs=[],cardFile=null;
 const steps=[...document.querySelectorAll('.step')];
 const setErr=(id,m)=>{$('e-'+id).textContent=m||'';const i=$(id);if(i)i.classList.toggle('bad',!!m)};
 const drawCats=()=>{const box=$('cats');box.textContent='';
-  CATS.forEach(c=>{const b=el('button','pillbtn',c+' frame');b.type='button';b.setAttribute('role','radio');b.setAttribute('aria-checked',String(c===cat));b.onclick=()=>{cat=c;drawCats()};box.appendChild(b)})};
+  CATS.forEach(c=>{const b=el('button','pillbtn',c+' frame');b.type='button';b.setAttribute('role','radio');b.setAttribute('aria-checked',String(c===cat));if(c===7)b.classList.add('standard-7-frame');b.onclick=()=>{cat=c;drawCats()};box.appendChild(b)})};
 drawCats();
 $('t').addEventListener('input',()=>{const v=$('t').value.trim(),ms=parse(v);setErr('t','');
   $('tprev').textContent=v?(ms?'Reads as '+fmt(ms):'Not a valid time yet'):'Total time, like 2:34:54 or 2h 34m 54s'});
