@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@vercel/og": "^1.0.3"
+    "@resvg/resvg-js": "^2.6.2",
+    "satori": "^0.35.0"
   }
 }
