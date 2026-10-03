@@ -6,7 +6,7 @@
 <meta name="description" content="Commission offers from clients. Pick one up for practice or a timed run.">
 <link rel="icon" href="/assets/img/logo.png" type="image/png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="/css/tokens.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/components.css"><link rel="stylesheet" href="/css/dialog.css"><link rel="stylesheet" href="/css/bulletin.css">
+<link rel="stylesheet" href="/css/tokens.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/components.css"><link rel="stylesheet" href="/css/submit.css"><link rel="stylesheet" href="/css/dialog.css"><link rel="stylesheet" href="/css/bulletin.css">
 </head>
 <body>
 <header><div class="bar bar3">
@@ -14,30 +14,48 @@
   <nav><a href="/timer/">Timer</a><a class=on href="/bulletin/">Client Bulletin</a></nav>
   <div class="bar-right"><a class="btn-sm" href="/submit/">Submit a run</a><button class="icon-btn" id="theme" type="button" aria-label="Toggle dark mode" title="Toggle theme">&#9680;</button></div>
 </div></header>
-<main class="bl-wrap">
-  <div class="bl-head">
-    <div><h1>Client Bulletin</h1><p class="intro">Clients post a commission here. Designers can pick one up and use it for practice or a timed run.</p></div>
-    <button class="btn" id="post" type="button">Post an offer</button>
-  </div>
-  <div class="notice">This site does not handle payments or contracts. Agree terms with the client directly, and be careful about sharing personal details or paying anyone in advance.</div>
-  <div class="tabs" id="ftabs"></div>
-  <div id="offers"></div>
+<section class="hero flat">
+  <span class="pill">Client Bulletin</span>
+  <h1>Commission Offers</h1>
+  <p>Clients post a brief. Designers can pick one up for practice or a timed run.</p>
+</section>
+<main>
+  <section id="list">
+    <div class="tabs" id="ftabs"></div>
+    <div id="offers" aria-live="polite"></div>
+  </section>
+  <aside>
+    <div class="card col">
+      <h2>Post an offer</h2>
+      <p class="side-note">Need something designed? Post your brief and designers can pick it up. Each person can have 1 offer at a time. Offers are reviewed before they are listed.</p>
+      <button class="btn full" id="post" type="button">Post an offer</button>
+    </div>
+    <div class="card col">
+      <h2>Good to know</h2>
+      <ol class="rules">
+        <li><span>1.</span><span>This site does not handle payments or contracts. Agree terms with the other person directly.</span></li>
+        <li><span>2.</span><span>Be careful about sharing personal details or paying anyone in advance.</span></li>
+        <li><span>3.</span><span>Contact the client on Discord using the username on their offer.</span></li>
+      </ol>
+    </div>
+  </aside>
 </main>
-<dialog id="odlg">
-  <form id="of" class="dform">
-    <h3>Post an offer</h3>
-    <label for="ocat">Frame category</label><select id="ocat"></select>
+<dialog id="odlg"><div class="sub-card">
+  <form id="of" class="step" novalidate>
+    <h2>Post an offer</h2>
+    <p class="intro">Describe the commission. It will appear on the bulletin once it has been reviewed.</p>
+    <label>Frame category</label><div class="cats" id="ocats" role="radiogroup" aria-label="Frame category"></div>
     <label for="od">What do you need designed?</label>
     <textarea id="od" rows="5" maxlength="600" placeholder="Describe the screens you want, the game style, and any requirements."></textarea><div class="hint" id="ocount">0/600</div>
     <label for="ou">Your Discord username</label><input id="ou" placeholder="username" maxlength="33" autocomplete="off">
     <label for="oa">Profile picture</label><input id="oa" type="file" accept="image/*"><div class="aprev" id="aprev"></div>
     <label class="check"><input type="checkbox" id="ocon"> I agree that designers may use this brief for practice and timed runs.</label>
     <input class="hp" id="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <div id="omsg"></div>
-    <div class="row2"><button class="btn ghost" type="button" id="ocx">Cancel</button><button class="btn" type="submit" id="osub">Submit offer</button></div>
+    <div class="err" id="omsg"></div>
+    <div class="nav"><button class="btn ghost" type="button" id="ocx">Cancel</button><button class="btn" type="submit" id="osub">Submit offer</button></div>
   </form>
   <div class="ok" id="odone" hidden><h3>Thanks, your offer was submitted.</h3><p class="intro">It will appear on the bulletin once it has been reviewed.</p><button class="btn" id="oclose" type="button">Close</button></div>
-</dialog>
+</div></dialog>
 <div class="toast" id="toast" role="status"></div>
 <script type="module" src="/js/bulletin-page.js"></script>
 </body></html>

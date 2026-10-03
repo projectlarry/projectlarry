@@ -1,4 +1,4 @@
-.tm-wrap{max-width:560px;margin:34px auto 60px;padding:0 20px;display:block}
+.tm-wrap{max-width:600px;margin:34px auto 60px;padding:0 20px;display:block}
 .tm-card{padding:26px}.tm-card .intro{margin:0 0 14px}
 .warn{background:var(--soft);border-radius:10px;padding:12px 14px;font-size:.88rem;line-height:1.5;color:var(--head);margin-bottom:16px}
 .clock{font-size:clamp(2.2rem,9vw,3.4rem);font-weight:700;letter-spacing:-.04em;color:var(--head);text-align:center;font-variant-numeric:tabular-nums;margin:14px 0 6px}
@@ -8,3 +8,10 @@
 .codebox{margin-top:20px;font-size:.8rem;color:var(--mute);display:grid;gap:8px}
 .codebox code{flex:1;background:var(--soft);border-radius:8px;padding:10px 12px;font-size:1rem;letter-spacing:.08em;color:var(--head);overflow-wrap:anywhere}
 .tm-card .row2{margin-top:6px}
+
+/*tm2*/
+.tm-card h2{font-size:1.5rem;text-transform:none;letter-spacing:-.5px;color:var(--head);display:block;margin:0 0 12px}
+#go{width:100%;padding:14px;margin-top:14px}
+.tm-card .row2 .btn{padding:14px}
+.resume .row2 .btn{padding:13px 18px;flex:none}
+.resume input{padding:13px 14px;border-radius:10px;font-size:1rem}

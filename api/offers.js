@@ -1,11 +1,11 @@
-const{redis,ip,limit,rid,hvals,jparse}=require('./_lib');
+const{redis,ip,ipk,limit,rid,hvals,jparse}=require('./_lib');
 const IMG=/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/;
 const CATS=[3,5,7,12,15];
 const bad=(res,m)=>res.status(400).json({error:m});
 module.exports=async(req,res)=>{
   try{
     if(req.method==='GET'){
-      const list=hvals(await redis('HGETALL','offers')).map(jparse).filter(Boolean);
+      const list=hvals(await redis('HGETALL','offers')).map(jparse).filter(Boolean).map(({ipk,...o})=>o);
       list.sort((x,y)=>((x.status==='taken')-(y.status==='taken'))||y.at-x.at);
       res.setHeader('Cache-Control','public, s-maxage=10, stale-while-revalidate=30');
       return res.status(200).json({offers:list});
@@ -20,9 +20,13 @@ module.exports=async(req,res)=>{
     if(!IMG.test(avatar)||avatar.length>30000)return bad(res,'Add a profile picture');
     if(b.consent!==true)return bad(res,'Please tick the agreement box');
     if(!(await limit('offer:'+ip(req),3,3600)))return res.status(429).json({error:'Too many offers. Try again in an hour.'});
+    const me=ipk(req);
+    const all=[...hvals(await redis('HGETALL','offers_pending')),...hvals(await redis('HGETALL','offers'))].map(jparse).filter(Boolean);
+    if(all.some(o=>o.status!=='taken'&&(o.ipk===me||o.discord===discord)))
+      return res.status(409).json({error:'You already have an offer posted. Only 1 offer per person is allowed. You can post again once it is marked as taken or removed.'});
     if((await redis('HLEN','offers_pending'))>=50)return res.status(503).json({error:'Offers are full right now. Try again later.'});
     const id=rid(8);
-    await redis('HSET','offers_pending',id,JSON.stringify({id,cat,desc,discord,avatar,status:'open',at:Date.now()}));
+    await redis('HSET','offers_pending',id,JSON.stringify({id,cat,desc,discord,avatar,ipk:me,status:'open',at:Date.now()}));
     res.status(200).json({ok:true});
   }catch(e){res.status(500).json({error:e.message})}
 };

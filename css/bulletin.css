@@ -1,19 +1,17 @@
-.bl-wrap{max-width:760px;margin:34px auto 60px;padding:0 20px;display:block}
-.bl-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:16px}
-.bl-head h1{margin:0 0 6px;font-size:clamp(1.8rem,5vw,2.4rem);letter-spacing:-.04em;color:var(--head)}
-.bl-head .intro{margin:0;max-width:480px}
-.notice{background:var(--soft);border-radius:10px;padding:12px 14px;color:var(--mute);font-size:.85rem;line-height:1.5;margin-bottom:18px}
-.offer{display:flex;gap:16px;padding:18px;background:var(--surface);border:1px dashed var(--line);border-radius:6px;box-shadow:var(--shadow);margin-bottom:16px}
+.hero.flat{margin-top:0;padding-top:44px}
+.offer{align-items:flex-start}
 .offer.taken{opacity:.6}
-.obody{flex:1;min-width:0}.otop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.otop b{font-size:1.05rem;color:var(--head);margin-right:4px}
-.otop .btn{margin-left:auto}
-.odesc{white-space:pre-wrap;overflow-wrap:anywhere;margin:10px 0;color:var(--text);line-height:1.55;font-size:.95rem}
-.ometa{font-size:.78rem;color:var(--mute)}
+.offer .thumb{width:96px;height:96px;border-radius:6px}
+.offer .info h3{font-size:1.3rem}
+.odesc{white-space:pre-wrap;overflow-wrap:anywhere;margin:10px 0 0;color:var(--text);line-height:1.55;font-size:.93rem}
 .badge.open{background:#d9f5e5;color:#17653a}.badge.gray{background:var(--soft);color:var(--mute)}
-.check{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--text);margin-top:8px}.check input{width:auto;margin-top:3px}
-.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-.aprev .ava{margin-top:6px}
-#omsg{color:var(--danger);font-size:.82rem}#omsg:empty{display:none}
-.ok{text-align:center;padding:16px 4px}.ok h3{margin:0 0 8px}
-.intro{color:var(--mute);font-size:.92rem;line-height:1.5}
-@media(max-width:560px){.offer{flex-direction:column}}
+.meta .badge{font-size:.7rem}
+.side-note{font-size:.85rem;color:var(--mute);line-height:1.5;margin:0 0 14px}
+.card.col .btn.full{width:100%;padding:14px}
+#odlg{padding:0;width:min(560px,94vw);max-height:92vh;overflow:auto}
+#odlg .step textarea{padding:13px 14px;border-radius:10px;font:inherit;font-size:1rem;width:100%;border:1px solid var(--line);background:var(--surface);color:var(--text);resize:vertical}
+#odlg .step textarea:focus{outline:2px solid var(--accent);outline-offset:2px}
+.step .check{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;font-weight:500;color:var(--text);margin-top:10px}
+.step .check input{width:auto;margin-top:3px;padding:0}
+.aprev img{width:72px;height:72px;border-radius:6px;object-fit:cover;margin-top:6px;display:block}
+@media(max-width:560px){.offer .thumb{width:72px;height:72px;aspect-ratio:1}}
