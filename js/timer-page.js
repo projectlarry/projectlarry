@@ -19,7 +19,7 @@ const confirmBox=(title,text,ok)=>new Promise(res=>{
   const d=$('dlg');$('dt').textContent=title;$('dm').textContent=text;$('dok').textContent=ok;
   d.returnValue='';d.onclose=()=>res(d.returnValue==='ok');d.showModal()});
 const drawCats=()=>{const box=$('cats');box.textContent='';
-  CATS.forEach(c=>{const b=el('button','pillbtn',c+' frame');b.type='button';b.setAttribute('role','radio');b.setAttribute('aria-checked',String(c===cat));if(c===7)b.classList.add('standard-7-frame');b.onclick=()=>{cat=c;drawCats()};box.appendChild(b)})};
+  CATS.forEach(c=>{const b=el('button','pillbtn',c+' frame');b.type='button';b.setAttribute('role','radio');b.setAttribute('aria-checked',String(c===cat));if(c===7){b.classList.add('standard-7-frame');b.title='The original 7 Frame standard'};if(c===7)b.classList.add('standard-7-frame');b.onclick=()=>{cat=c;drawCats()};box.appendChild(b)})};
 drawCats();
 function render(){
   const v=!st?'start':st.stop?'done':'run';

@@ -30,3 +30,11 @@ footer{text-align:center;color:var(--mute);font-size:.78rem;padding:10px 20px 30
 /*hdr2*/
 nav a.on{color:var(--head)}
 @media(max-width:860px){.bar3{grid-template-columns:auto 1fr;height:auto;min-height:64px;padding-top:8px;padding-bottom:8px;row-gap:6px}.bar3 nav{display:flex;grid-column:1/-1;order:3;gap:22px;overflow-x:auto;padding-bottom:4px}}
+
+/* Keep sticky navigation visually above scrolling page content. */
+header {
+  background: var(--bg);
+  z-index: 100;
+  isolation: isolate;
+}
+

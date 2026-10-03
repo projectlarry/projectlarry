@@ -86,3 +86,52 @@
 .seg button.standard-7-frame[aria-checked="true"]::after {
   color: currentColor;
 }
+
+/* The 7 Frame category is the site's original standard. */
+.tab.standard-7-frame,
+.pillbtn.standard-7-frame,
+.seg button.standard-7-frame {
+  font-weight: 700;
+}
+
+.tab.standard-7-frame::before,
+.pillbtn.standard-7-frame::before,
+.seg button.standard-7-frame::before {
+  content: "◆";
+  display: inline-block;
+  margin-right: 5px;
+  font-size: .48em;
+  vertical-align: middle;
+  color: var(--accent);
+}
+
+.tab.standard-7-frame:not([aria-selected="true"]),
+.pillbtn.standard-7-frame:not([aria-checked="true"]) {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+  background: color-mix(in srgb, var(--surface) 92%, var(--accent));
+  color: var(--head);
+}
+
+
+/* 7 Frame original standard: simple verification mark only */
+.tab.standard-7-frame,
+.pillbtn.standard-7-frame,
+.seg button.standard-7-frame {
+  font-weight: inherit;
+  background: inherit;
+  border-color: inherit;
+  color: inherit;
+}
+
+.tab.standard-7-frame::before,
+.pillbtn.standard-7-frame::before,
+.seg button.standard-7-frame::before {
+  content: "✓";
+  display: inline-block;
+  margin-right: 5px;
+  font-size: .8em;
+  font-weight: 700;
+  vertical-align: 0.05em;
+  color: inherit;
+}
+

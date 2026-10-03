@@ -11,12 +11,15 @@ export function buildTabs(box,cats,active,onPick,count){
 
     if(Number(c)===7){
       b.classList.add('standard-7-frame');
-      b.setAttribute('data-standard','7-frame');
+      b.dataset.standard='7-frame';
+      b.title='The original 7 Frame standard';
     }
 
     b.appendChild(document.createTextNode(c+' frame'));
 
-    if(count)b.appendChild(el('i',null,String(count(c))));
+    if(count){
+      b.appendChild(el('i',null,String(count(c))));
+    }
 
     b.onclick=()=>onPick(c);
     box.appendChild(b);
