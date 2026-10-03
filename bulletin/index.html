@@ -6,7 +6,7 @@
 <meta name="description" content="Commission offers from clients. Pick one up for practice or a timed run.">
 <link rel="icon" href="/assets/img/logo.png" type="image/png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="/css/tokens.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/components.css"><link rel="stylesheet" href="/css/submit.css"><link rel="stylesheet" href="/css/dialog.css"><link rel="stylesheet" href="/css/bulletin.css">
+<link rel="stylesheet" href="/css/tokens.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/components.css"><link rel="stylesheet" href="/css/bulletin.css">
 </head>
 <body>
 <header><div class="bar bar3">
@@ -40,22 +40,39 @@
     </div>
   </aside>
 </main>
-<dialog id="odlg"><div class="sub-card">
-  <form id="of" class="step" novalidate>
-    <h2>Post an offer</h2>
-    <p class="intro">Describe the commission. It will appear on the bulletin once it has been reviewed.</p>
-    <label>Frame category</label><div class="cats" id="ocats" role="radiogroup" aria-label="Frame category"></div>
-    <label for="od">What do you need designed?</label>
-    <textarea id="od" rows="5" maxlength="600" placeholder="Describe the screens you want, the game style, and any requirements."></textarea><div class="hint" id="ocount">0/600</div>
-    <label for="ou">Your Discord username</label><input id="ou" placeholder="username" maxlength="33" autocomplete="off">
-    <label for="oa">Profile picture</label><input id="oa" type="file" accept="image/*"><div class="aprev" id="aprev"></div>
-    <label class="check"><input type="checkbox" id="ocon"> I agree that designers may use this brief for practice and timed runs.</label>
-    <input class="hp" id="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <div class="err" id="omsg"></div>
-    <div class="nav"><button class="btn ghost" type="button" id="ocx">Cancel</button><button class="btn" type="submit" id="osub">Submit offer</button></div>
-  </form>
-  <div class="ok" id="odone" hidden><h3>Thanks, your offer was submitted.</h3><p class="intro">It will appear on the bulletin once it has been reviewed.</p><button class="btn" id="oclose" type="button">Close</button></div>
-</div></dialog>
+
+<div class="modal" id="omodal" hidden>
+  <div class="modal-bg" data-close></div>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="mt">
+    <form id="of" novalidate>
+      <div class="sheet-head">
+        <div><h2 id="mt">Post an offer</h2><p class="sheet-sub">Describe the commission. It appears on the bulletin once it has been reviewed.</p></div>
+        <button class="x" type="button" data-close aria-label="Close"><svg viewBox="0 0 16 16"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
+      </div>
+      <div class="field"><span class="fl" id="lc">Frame category</span><div class="seg" id="oseg" role="radiogroup" aria-labelledby="lc"></div></div>
+      <div class="field" id="f-d"><label class="fl" for="od">What do you need designed?</label>
+        <div class="ta"><textarea id="od" maxlength="600" placeholder="Describe the screens you want, the game style, and any requirements."></textarea><span class="cnt" id="ocount">0/600</span></div></div>
+      <div class="field" id="f-u"><label class="fl" for="ou">Discord username</label>
+        <div class="inp"><span class="at">@</span><input id="ou" placeholder="username" maxlength="33" autocomplete="off" spellcheck="false"></div></div>
+      <div class="field" id="f-a"><span class="fl">Profile picture</span>
+        <div class="up" id="oup" tabindex="0" role="button" aria-label="Choose a profile picture">
+          <div class="up-av" id="uav"></div>
+          <div class="up-t"><b id="ut">Upload a picture</b><small>Drop an image here or click. PNG, JPG or WebP.</small></div>
+          <span class="btn ghost" id="ubtn">Choose</span>
+        </div>
+        <input id="oa" type="file" accept="image/*" hidden></div>
+      <div class="field" id="f-c"><button class="tick" id="ocon" type="button" role="checkbox" aria-checked="false"><span class="box"><svg viewBox="0 0 20 20"><path d="M5 10.5l3.5 3.5L15 7"/></svg></span><span>I agree that designers may use this brief for practice and timed runs.</span></button></div>
+      <input class="hp" id="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="err" id="omsg" role="alert"></div>
+      <div class="sheet-acts"><button class="btn ghost" type="button" data-close>Cancel</button><button class="btn" type="submit" id="osub">Submit offer</button></div>
+    </form>
+    <div class="done" id="odone" hidden>
+      <svg class="okc" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="M15 27l8 8 14-16"/></svg>
+      <h3>Offer submitted</h3><p>It will appear on the bulletin once it has been reviewed.</p>
+      <button class="btn" id="oclose" type="button" style="min-width:140px;padding:13px 22px">Done</button>
+    </div>
+  </div>
+</div>
 <div class="toast" id="toast" role="status"></div>
 <script type="module" src="/js/bulletin-page.js"></script>
 </body></html>
